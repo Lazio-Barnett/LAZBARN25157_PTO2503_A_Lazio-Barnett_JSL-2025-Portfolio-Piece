@@ -5,8 +5,8 @@
  * @returns {Promise<Array>} tasks
  */
 export async function fetchInitialTasks() {
-  const API_BASE = "https://jsl-kanban-api.vercel.app/";
-  const candidates = [API_BASE, `${API_BASE}tasks`, `${API_BASE}api/tasks`];
+  const API_BASE = "https://jsl-kanban-api.vercel.app";
+  const candidates = [API_BASE, `${API_BASE}/tasks`, `${API_BASE}/api/tasks`];
 
   for (const url of candidates) {
     try {

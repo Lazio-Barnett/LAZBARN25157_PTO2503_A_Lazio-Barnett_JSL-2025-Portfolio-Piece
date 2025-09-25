@@ -7,8 +7,10 @@ import { clearExistingTasks, renderTasks } from "./ui/render.js";
 import {
   setupModalCloseHandler,
   setupNewTaskModalHandler,
+  setupEditModalHandlers,
 } from "./ui/modalHandlers.js";
 import { fetchInitialTasks } from "./api.js";
+import { updateTask, deleteTask } from "../tasks/taskManager.js";
 
 // Update the status banner text and show it
 function setStatus(message, kind = "info") {
