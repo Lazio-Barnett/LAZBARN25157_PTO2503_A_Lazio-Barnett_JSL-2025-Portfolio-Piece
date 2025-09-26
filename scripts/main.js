@@ -10,9 +10,11 @@ import {
   setupEditModalHandlers,
 } from "./ui/modalHandlers.js";
 import { fetchInitialTasks } from "./api.js";
-import { updateTask, deleteTask } from "../tasks/taskManager.js";
+import { setupSidebar } from "./ui/sidebar.js";
+import { setupMobileMenu } from "./ui/mobileMenu.js";
+import { setupTheme } from "./ui/theme.js";
 
-// Update the status banner text and show it
+/** Update the status banner text and show it */
 function setStatus(message, kind = "info") {
   const el = document.getElementById("app-status");
   if (!el) return;
@@ -21,7 +23,7 @@ function setStatus(message, kind = "info") {
   el.hidden = false;
 }
 
-// Hide the status banner
+/** Hide the status banner */
 function clearStatus() {
   const el = document.getElementById("app-status");
   if (!el) return;
@@ -52,6 +54,14 @@ async function initTaskBoard() {
   // Keep existing modal hooks working
   setupModalCloseHandler();
   setupNewTaskModalHandler();
+  // wire sidebar controls (hide / show / mobile overlay)
+  setupSidebar();
+  // wire mobile menu controls (open / close)
+  setupMobileMenu();
+  // wire theme toggle controls (desktop + mobile)
+  setupTheme();
 }
+
+setupEditModalHandlers();
 
 document.addEventListener("DOMContentLoaded", initTaskBoard);
