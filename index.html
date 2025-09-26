@@ -25,23 +25,49 @@
         <img id="logo" src="./assets/logo-light.svg" alt="logo-light" />
       </div>
 
-      <div class="boards-nav-links-div" id="boards-nav-links-div">
+      <div id="boards-section" class="boards-section">
         <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
         <button class="board-btn">Launch Career</button>
       </div>
+
+      <div class="sidebar-controls">
+        <div class="theme-card">
+          <span>🌞</span>
+          <label class="switch">
+            <input type="checkbox" id="desktop-theme-toggle" />
+            <span class="slider"></span>
+          </label>
+          <span>🌑</span>
+        </div>
+        <button
+          id="hide-sidebar-btn"
+          class="sidebar-hide-btn"
+          aria-label="Hide sidebar"
+        >
+          <span class="btn-emoji" aria-hidden="true">🚫</span>
+          <span class="btn-label">Hide Sidebar</span>
+        </button>
+      </div>
     </nav>
 
+    <!-- Status Banner: Displays status messages to the user. -->
     <div id="app-status" aria-live="polite" class="status-banner" hidden></div>
 
     <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
     <div id="layout">
       <header id="header" class="sticky-header">
         <div class="header-name-div">
-          <img
-            src="./assets/favicon.svg"
-            alt="logo-mobile"
-            class="logo-mobile"
-          />
+          <button
+            id="mobile-menu-btn"
+            class="mobile-menu-btn"
+            aria-label="Open menu"
+          >
+            <img
+              src="./assets/favicon.svg"
+              alt="Kanban logo"
+              class="logo-mobile"
+            />
+          </button>
           <h2 class="header-board-name" id="header-board-name">
             Launch Career
           </h2>
@@ -186,5 +212,48 @@
         </div>
       </form>
     </dialog>
+    <button
+      id="show-sidebar-btn"
+      class="show-sidebar-btn"
+      aria-label="Show sidebar"
+      hidden
+    >
+      👀
+    </button>
+
+    <!-- Mobile menu overlay and panel -->
+    <div id="mobile-menu-overlay" hidden></div>
+
+    <div
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mobile-menu-title"
+      hidden
+    >
+      <div class="mm-header">
+        <span id="mobile-menu-title" class="mm-title">ALL BOARDS (1)</span>
+        <button id="mobile-menu-close" class="mm-close" aria-label="Close menu">
+          ✕
+        </button>
+      </div>
+
+      <div class="mm-content">
+        <!-- Match your active board label -->
+        <button class="mm-board is-active">Launch Career</button>
+
+        <!-- Placeholder for theme toggle (wired in Step 4) -->
+        <div class="mm-theme">
+          <div class="mm-theme-card">
+            <span>🌞</span>
+            <label class="switch">
+              <input type="checkbox" id="mobile-theme-toggle" />
+              <span class="slider"></span>
+            </label>
+            <span>🌑</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
