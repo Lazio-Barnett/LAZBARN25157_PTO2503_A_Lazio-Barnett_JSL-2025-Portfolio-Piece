@@ -6,14 +6,18 @@
  */
 export async function fetchInitialTasks() {
   const API_BASE = "https://jsl-kanban-api.vercel.app";
-  const candidates = [API_BASE, `${API_BASE}/tasks`, `${API_BASE}/api/tasks`];
+  const candidates = [
+    API_BASE,
+    `${API_BASE}/tasks`,
+    `${API_BASE}/api/tasks`,
+  ];
 
   for (const url of candidates) {
     try {
       const res = await fetch(url);
       if (!res.ok) continue;
       const data = await res.json();
-      const tasks = Array.isArray(data) ? data : data.tasks || data.data || [];
+      const tasks = Array.isArray(data) ? data : (data.tasks || data.data || []);
       if (Array.isArray(tasks) && tasks.length) return tasks;
     } catch (_) {
       // try next candidate

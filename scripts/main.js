@@ -1,18 +1,12 @@
 // scripts/main.js
-import {
-  loadTasksFromStorage,
-  saveTasksToStorage,
-} from "./utils/localStorage.js";
+import { loadTasksFromStorage, saveTasksToStorage } from "./utils/localStorage.js";
 import { clearExistingTasks, renderTasks } from "./ui/render.js";
-import {
-  setupModalCloseHandler,
-  setupNewTaskModalHandler,
-  setupEditModalHandlers,
-} from "./ui/modalHandlers.js";
+import { setupModalCloseHandler, setupNewTaskModalHandler, setupEditModalHandlers } from "./ui/modalHandlers.js";
 import { fetchInitialTasks } from "./api.js";
 import { setupSidebar } from "./ui/sidebar.js";
 import { setupMobileMenu } from "./ui/mobileMenu.js";
 import { setupTheme } from "./ui/theme.js";
+
 
 /** Update the status banner text and show it */
 function setStatus(message, kind = "info") {
@@ -56,7 +50,7 @@ async function initTaskBoard() {
   setupNewTaskModalHandler();
   // wire sidebar controls (hide / show / mobile overlay)
   setupSidebar();
-  // wire mobile menu controls (open / close)
+ // wire mobile menu controls (open / close)
   setupMobileMenu();
   // wire theme toggle controls (desktop + mobile)
   setupTheme();
@@ -65,3 +59,4 @@ async function initTaskBoard() {
 setupEditModalHandlers();
 
 document.addEventListener("DOMContentLoaded", initTaskBoard);
+
