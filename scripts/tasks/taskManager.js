@@ -51,3 +51,5 @@ export function deleteTask(id) {
   clearExistingTasks();
   renderTasks(tasks);
 }
+
+<script defer src="./scripts/main.js" type="module"></script>;
