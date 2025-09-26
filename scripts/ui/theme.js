@@ -21,9 +21,9 @@ function storeTheme(theme) {
 /* Keep desktop + mobile checkboxes aligned */
 function syncCheckboxes(isDark) {
   const desktopCb = document.getElementById("desktop-theme-toggle");
-  const mobileCb  = document.getElementById("mobile-theme-toggle");
+  const mobileCb = document.getElementById("mobile-theme-toggle");
   if (desktopCb) desktopCb.checked = isDark;
-  if (mobileCb)  mobileCb.checked  = isDark;
+  if (mobileCb) mobileCb.checked = isDark;
 }
 
 /* Public: initialize + wire listeners */
