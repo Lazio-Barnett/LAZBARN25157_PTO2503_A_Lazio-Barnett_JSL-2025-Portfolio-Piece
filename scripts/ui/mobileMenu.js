@@ -1,20 +1,20 @@
 // /scripts/ui/mobileMenu.js
 export function setupMobileMenu() {
-  const openBtn  = document.getElementById("mobile-menu-btn");
-  const overlay  = document.getElementById("mobile-menu-overlay");
-  const panel    = document.getElementById("mobile-menu");
+  const openBtn = document.getElementById("mobile-menu-btn");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const panel = document.getElementById("mobile-menu");
   const closeBtn = document.getElementById("mobile-menu-close");
-  const body     = document.body;
+  const body = document.body;
 
   if (!openBtn || !overlay || !panel || !closeBtn) return;
 
   const isMobile = () => window.matchMedia("(max-width: 1023px)").matches;
 
   const open = () => {
-    if (!isMobile()) return;          // only on mobile/tablet
+    if (!isMobile()) return; // only on mobile/tablet
     overlay.hidden = false;
     panel.hidden = false;
-    body.classList.add("menu-open");  // stop background scroll
+    body.classList.add("menu-open"); // stop background scroll
   };
 
   const close = () => {
